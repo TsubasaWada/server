@@ -8,7 +8,15 @@
             const sensorData = await fetch(url)
                 .then(response => response.text())
             const target = document.getElementById(element)
+            const sensorNumber = Number(sensorData)
             target.innerHTML = `<h1>${sensorData}</h1>`
+            if (sensorNumber >= 20){
+                target.innerHTML = `<h1> 在室中 </h1>`
+            }else if (sensorNumber < 20 ){
+                target.innerHTML = `<h1> 外出中 </h1>`
+            }else {
+                target.innerHTML = `<h1> Error </h1>`
+            }
         } 
     </script>
 </head>
